@@ -1,0 +1,121 @@
+<div class="row justify-content-md-center" >
+  <h3>Detalle Alumno</h3>
+
+  <% if @alumn.errors.any? %>
+    <h4>Hubo errores con el registro, revisa que...</h4>
+    <ul>
+      <% @alumn.errors.full_messages.each do |errores| %>
+        <li><%= errores %></li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>
+
+<br>
+<br>
+
+<div class="row justify-content-md-center" >
+  <%= form_for(@alumn, html: {class: "col-s12"}) do |entity| %>
+
+    <div class="row justify-content-start">
+      <div class="col col-lg-6">
+        <%= entity.label :Curso %>
+      </div>
+      <div class="col col-lg-2">
+        <%= entity.text_field :course_id, value: @course.id, :disabled => true  %>
+      </div>
+    </div>
+
+    <div class="row justify-content-start">
+      <div class="col col-lg-6">
+        <%= entity.label :Maestro %>
+      </div>
+      <div class="col col-lg-2">
+        <%= entity.text_field :user_id, value: @alumn.user.id, :disabled => true  %>
+      </div>
+    </div>
+
+    <div class="row justify-content-start">
+      <div class="col col-lg-6">
+        <%= entity.label :Nombre %>
+      </div>
+      <div class="col col-lg-4">
+        <%= entity.text_field :name, :disabled => true %>
+      </div>
+    </div>
+
+    <div class="row justify-content-start">
+      <div class="col col-lg-6">
+        <%= entity.label :Edad %>
+      </div>
+      <div class="col col-lg-4">
+        <%= entity.text_field :age, :disabled => true %>
+      </div>
+    </div>
+
+    <div class="row justify-content-start">
+      <div class="col col-lg-6">
+        <%= entity.label :Telefono %>
+      </div>
+      <div class="col col-lg-4">
+        <%= entity.text_field :phone, :disabled => true %>
+      </div>
+    </div>
+
+    <div class="row justify-content-start">
+      <div class="col col-lg-6">
+        <%= entity.label :Mail %>
+      </div>
+      <div class="col col-lg-4">
+        <%= entity.text_field :email, :disabled => true %>
+      </div>
+    </div>
+
+    <div class="row justify-content-start">
+      <div class="col col-lg-6">
+        <%= entity.label :Direccion %>
+      </div>
+      <div class="col col-lg-4">
+        <%= entity.text_field :direccion, :disabled => true %>
+      </div>
+    </div>
+
+    <div class="row justify-content-start">
+      <div class="col col-lg-6">
+        <%= entity.label :Sangre %>
+      </div>
+      <div class="col col-lg-4">
+        <%= entity.text_field :sangre, :disabled => true %>
+      </div>
+    </div>
+
+    <div class="row justify-content-start">
+      <div class="col col-lg-6">
+        <%= entity.label :Otro %>
+      </div>
+      <div class="col col-lg-4">
+        <%= entity.text_field :otro, :disabled => true %>
+      </div>
+    </div>
+
+    <div class="row justify-content-start">
+      <div class="col col-lg-6">
+        <%= entity.label :Peso %>
+      </div>
+      <div class="col col-lg-4">
+        <%= entity.text_field :peso, :disabled => true %>
+      </div>
+    </div>
+
+
+    <br>
+    <div class="row justify-content-end">
+      <div class="col col-lg-12">
+        <%= link_to "Editar", edit_alumn_path(entity), class: "btn btn-success" %>
+        <%= link_to "Cancelar", administrador_courses_path, class: "btn btn-warning" %>
+      </div>
+    </div>
+
+  <% end %>
+</div>
+

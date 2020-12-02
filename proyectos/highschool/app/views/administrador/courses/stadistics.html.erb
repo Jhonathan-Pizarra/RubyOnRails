@@ -1,0 +1,21 @@
+<h2>Tus cursos: <%= @course_user.size %></h2>
+<h2>Tus alumnos: <%= @alumns_in_your_curse.size %></h2>
+
+<% @course_user.each do |curso| %>
+<h2>Cursos que gestionas: <%= curso.name %></h2>
+<% end %>
+
+<% if(current_user.administrador) %>
+  <h1>Usuario Administrador...</h1>
+  <h2>Total de alumnos: <%= @total_alumnos.size %> </h2>
+  <h2>Cursos totales: <%= @total_cursos.size %> </h2>
+
+  <% @curses.each do |curso| %>
+    <h3>Alumnos en <%= curso.name %> curso: <%= curso.alumns.size %></h3>
+  <% end %>
+
+  <h3>Mayor edad en un alumno: <%= @ward %></h3>
+<% end %>
+
+
+<h6><%= link_to "Volver", administrador_courses_path, class: "btn btn-primary"  %></h6>

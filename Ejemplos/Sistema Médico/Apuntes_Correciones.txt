@@ -1,0 +1,30 @@
+al iniciar sesión debía ir directo al dashboard
+
+solución:
+el formulario debo de ponerlo en... en .. o sea 
+
+@visit no puede ser nil ni vacio dentro de un formulario,
+toca instanciar, ¿Cómo intancio?
+
+dentro del show no existe una variable visitas, debo de ponerle
+variable = Visit.new
+
+
+de este objeto dame sus relaciones
+@patient = Patient.find = iun paciente en particular
+@visit = Visit.new esto es lo que hace que en mi show pueda crear un form
+@visit = @patient.visits es lo que me da las relaciones del objeto
+relaciones en ente caso de todo lo que sea visitas
+
+en laimagen 3, cuando creo una nueva visita, se me quede en el fisitmismo
+
+
+estadisticas:
+- doctor con mas visitas 
+- el paciente más frecuente (Preguntar)
+- cuantos admins hay
+- cuantos doctores hay
+
+estadisticas - doctor
+- cuantos pacientes tengo
+- cuantas visitas todos los pacientes

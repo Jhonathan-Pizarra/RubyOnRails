@@ -1,0 +1,62 @@
+<div class="row justify-content-md-center">
+  <h1>Detalle del Curso </h1>
+</div>
+
+<br>
+<br>
+
+<div class="row justify-content-md-center" >
+  <%= form_with model: [:administrador, @course, @alumns], local: true do |entity| %>
+
+    <div class="row justify-content-start">
+      <div class="col col-lg-6">
+        <%= entity.label :Nombre %>
+      </div>
+      <div class="col col-lg-2">
+        <%= entity.text_field :name, :disabled => true  %>
+      </div>
+    </div>
+
+    <div class="row justify-content-start">
+      <div class="col col-lg-6">
+        <%= entity.label :FechaInicio %>
+      </div>
+      <div class="col col-lg-2">
+        <%= entity.text_field :finicio, :disabled => true  %>
+      </div>
+    </div>
+
+    <div class="row justify-content-start">
+      <div class="col col-lg-6">
+        <%= entity.label :FechaFinal %>
+      </div>
+      <div class="col col-lg-2">
+        <%= entity.text_field :ffinal, :disabled => true  %>
+      </div>
+    </div>
+
+
+    <br>
+
+    <div class="row justify-content-end">
+      <div class="col col-lg-12">
+        <% if(current_user.administrador) %>
+        <%= link_to "Editar", edit_administrador_course_path, class: "btn btn-primary"  %>
+        <%= link_to "Borrar", administrador_course_path, method: :delete, data: { confirm: "Estas seguro?"} , class: "btn btn-danger"  %>
+        <%= link_to "Cancelar", administrador_courses_path, class: "btn btn-warning" %>
+        <% end %>
+      </div>
+    </div>
+
+
+
+  <% end %>
+
+</div>
+
+<div class="row justify-content-md-center">
+  <h6><%= link_to "Volver", administrador_courses_path, class: "btn btn-primary"  %></h6>
+</div>
+
+
+

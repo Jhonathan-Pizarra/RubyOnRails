@@ -1,0 +1,49 @@
+<h1>Detalle: </h1>
+<h4><strong>Título: </strong><%= @notice.titulo %></h4>
+<h4><strong>Descripcion: </strong><%= @notice.descripcion_corta %></h4>
+
+<%= link_to "volver", notices_path %>
+
+<h4>Comentarios: </h4>
+<% if user_signed_in? %>
+   formulario de para ingresar comentarios
+  <%= form_with(model: @comentario, local: true) do |elemento| %><p>
+      <%= elemento.hidden_field :user_id, value: current_user.id %>
+
+      <%= elemento.hidden_field :notice_id, value: @notice.id  %>
+
+      <%= elemento.label :comentarios %>
+      <%= elemento.text_area :comentarios %>
+
+
+    <%= elemento.submit "Guardar"  %>
+
+  <% end %>
+<% else %>
+  Incia sesión para comentar :)
+<% end %>
+
+<div>
+  Aquí debería ir la lista de comentarios... de todos..
+
+  <table class="table table-striped">
+    <thead class="thead-dark">
+    <tr>
+      <th>Usuario</th>
+      <th colspan="3">Comentario</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @coment.each do |commentary| %>
+      <tr>
+        <td><%= commentary.user.email %></td> <!--user.campo-->
+        <td><%= commentary.comentarios %></td><!--en mi bdd tengo este campo; es para un comentario individual-->
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+</div>
+
+

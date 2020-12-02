@@ -1,0 +1,57 @@
+<div class="row justify-content-md-center" >
+  <h3>Editar  Cursos</h3>
+
+  <% if @course.errors.any? %>
+    <h4>Hubo errores con el registro, revisa que...</h4>
+    <ul>
+      <% @course.errors.full_messages.each do |errores| %>
+        <li><%= errores %></li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>
+
+<br>
+<br>
+
+<div class="row justify-content-md-center" >
+  <%= form_with model: [:administrador, @course], local: true do |entity| %>
+
+    <div class="row justify-content-start">
+      <div class="col col-lg-6">
+        <%= entity.label :Nombre %>
+      </div>
+      <div class="col col-lg-2">
+        <%= entity.text_field :name %>
+      </div>
+    </div>
+
+    <div class="row justify-content-start">
+      <div class="col col-lg-6">
+        <%= entity.label :FInicio %>
+      </div>
+      <div class="col col-lg-2">
+        <%= entity.text_field :finicio %>
+      </div>
+    </div>
+
+    <div class="row justify-content-start">
+      <div class="col col-lg-6">
+        <%= entity.label :FFinal %>
+      </div>
+      <div class="col col-lg-2">
+        <%= entity.text_field :ffinal %>
+      </div>
+    </div>
+
+    <br>
+    <div class="row justify-content-end">
+      <div class="col col-lg-12">
+        <%= entity.submit "Guardar", class: "btn btn-success"  %>
+        <%= link_to "Cancelar", administrador_users_path, class: "btn btn-warning" %>
+      </div>
+    </div>
+
+  <% end %>
+</div>
+

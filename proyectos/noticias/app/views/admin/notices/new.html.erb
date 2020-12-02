@@ -1,0 +1,42 @@
+<!--Liks para crear y editar y eliminar noticias :) -->
+<h1>Crea una noticia</h1>
+
+<% if @notice.errors.any? %>
+  <h4>Hubo errores con el registro, revisa que...</h4>
+  <ul>
+    <% @notice.errors.full_messages.each do |errores| %>
+      <li><%= errores %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+
+<!--modelo accede a la variable-->
+<!--el formulario es más como para registros, estoy en la vista new, y como llego a crear?-->
+<!--lcal true: el rato que doy submit, va ahacer peticion para, como para decir que es local y no una llamada js-->
+<%= form_with model: [:admin, @notice], local: true do |elemento| %>
+
+  <%= elemento.hidden_field :user_id, value: current_user.id %>
+
+  <p>
+    <%= elemento.label :titulo %>
+    <%= elemento.text_field :titulo %>
+  </p>
+
+  <p>
+    <%= elemento.label :descripcion_corta %>
+    <%= elemento.text_field :descripcion_corta %>
+  </p>
+
+  <p>
+    <%= elemento.label :descripcion_larga %>
+    <%= elemento.text_field :descripcion_larga %>
+  </p>
+
+
+  <%= elemento.submit "Guardar"  %>
+
+<% end %>
+
+<%= link_to "volver", admin_notices_path %>
+

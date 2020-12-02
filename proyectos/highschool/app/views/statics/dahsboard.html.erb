@@ -1,0 +1,22 @@
+<h2>Bienvenido: <%= @user %></h2>
+<h3>Tus cursos: <%= @course_user.size %></h3>
+<h3>Tus alumnos: <%= @alumns_in_your_curse.size %></h3>
+
+<div class="row justify-content-md-center">
+    <img src="<%= image_path("tenor.gif") %>"/>
+</div>
+<video width="320" height="240" controls=""> <!--controls sirve para indicar al video que puede ser clickeado para reproducir o poner en pausa-->
+  <!--Otros atributos que se usan además de controls son : muted, loop, poster(debes poner poster=('url') de la imagen que se presentará como portada de video, preload=(puede ser none, auto, o metadata son para el el video cargue, no cargue o carge cuando la página haya cargado por completo)-->
+  <source src="<%= image_path("panda.mp4") %>"type="video/mp4">
+</video>
+
+<div class="row justify-content-center">
+
+    <h6><%= link_to "Cursos", administrador_courses_path, class: "btn btn-info"  %></h6>
+
+
+</div>
+
+
+
+

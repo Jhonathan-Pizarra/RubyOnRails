@@ -1,0 +1,120 @@
+Profesor
+Alumnos
+Cursos?
+
+El Usuario es el director, 
+el director puede entrar y registrar sesión
+
+Los usuarios ("directores") se van a poder registrar
+debo tener un admin, el va a poder ver todos los usuarios regirstadoos (directores9
+va a poder convertirlos en admin, o eliminarlos
+
+Flujo:
+entro, veo, me registro
+
+El admin cuando inicia sesión, el tiene una opcion para administrar 
+el admin ve el listado, y si quiero lo elimino o lo convierto en admin
+el admin ve cuantos alumnos, y así..
+
+El home tiene que tener opicon para iniciar seisón o regirstarse
+
+
+Usuarios -> doctroes -> directores
+Un director:
+el director tiene que irse a una página que no sea el Home
+puede crear cursos (tabla cursos, y que pertenezcan al director)
+
+curses belogns to useres
+users has many courses
+
+
+Alumnos
+una tabla que el alimno debe pertenecer a un curso y al usuario
+(Es lo mismo que visitas)
+
+---
+Curso es como paciemte
+en ves de visitas es estudiantes
+
+si me registro como un nuevo usuario, no tengo que ver los cursos
+creados por otros directores
+
+
+dentro del curso registrar un alumno
+
+
+....muchos doctores = muchos directors
+admin piede ser directror ! :D
+
+.------------
+Primero creo los modelos
+Despues los controladores
+--------------
+
+1.- cursos (patiens)
+2.- alumno (visits) en cada curso debe haber un alumno
+
+cuando creo el modelo le agrego la tabla:
+user_references (para que pertenezca al durector
+course_references (para que perteneza al curso)
+
+directores (usuarios)
+alumno (patien
+
+
+
+------ Analizar actores del sistema
+Alumnos (Pacientes)
+Cursos (Visitas)
+Profesores (Usuarios)
+Directores (Admins)
+
+Yo como director puedeo gestionar Profesores, Cursos, Alumnos
+Yo como Curso puedo gestionar profesores y alumnos
+Yo como Profestor puedo gestionar Alumnos
+Yo como Alumno puedo gestionar nada
+
+------Analizar el flujo
+
+Por dónde empliezo?
+Incio por:
+Alumnos deben estar asociados a un curso, entonces no
+Cursos debe asociar alumnos y profesores, entonces...
+Profesores deben estar asociados a un curso
+Directores deben crearlo todo, es mi punto de entrada
+
+Admin (directores) son como que los que dan de baja o alts usuarios (profesores)
+1) Haer un crud de usuarios (Con opción a crear otros admins)
+2) Hscer el crud de cursos (No solo el admin, sino los profes también gestionan estos)
+
+
+
+
+
+
+
+
+
+
+
+
+
+---------
+Dudas:
+Cuándo le hice la migracion del nuevo campo, los usuarios que tenía creado
+se borraron, ¿Qué pasó?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

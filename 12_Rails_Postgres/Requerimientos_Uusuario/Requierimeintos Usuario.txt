@@ -1,0 +1,24 @@
+Modelo de bloc
+
+tcf/noticias
+tcf/admin/noticias
+
+
+
+poder grabar noticas...
+para que se muestren en cards, 
+
+crear un nampespace admin para la administracion
+y la parte sin namespace admin para el publico 
+
+
+
+.....
+descargar información de la superintendencia
+estados finacieros por ramo -> 
+
+hay 20 archivos,
+entrear en el A
+año 2019
+
+

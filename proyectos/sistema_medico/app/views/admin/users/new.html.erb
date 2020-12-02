@@ -1,0 +1,59 @@
+<h1>Registro de nuevo doctor</h1>
+
+<% if @user.errors.any? %>
+  <h4>Hubo errores con el registro, revisa que...</h4>
+  <ul>
+    <% @user.errors.full_messages.each do |errores| %>
+      <li><%= errores %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_with model: [:admin, @user], local: true do |elemento| %>
+
+  <div class="row justify-content-start">
+    <div class="col-1">
+      <%= elemento.label :Email %>
+    </div>
+    <div class="col-1">
+      <%= elemento.text_field :email %>
+    </div>
+  </div>
+
+  <div class="row justify-content-start">
+    <div class="col-1">
+      <%= elemento.label :Contraseña %>
+    </div>
+    <div class="col-1">
+      <%= elemento.password_field :password %>
+    </div>
+  </div>
+
+  <div class="row justify-content-start">
+    <div class="col-1">
+      <%= elemento.label :Repetir_Contraseña %>
+    </div>
+    <div class="col-1">
+      <%= elemento.password_field :password_confirmation %>
+    </div>
+  </div>
+
+  <div class="row justify-content-start">
+    <div class="col-1">
+      <%= elemento.label :Rol %>
+    </div>
+    <div class="col-1">
+      <%# elemento.select(:status_type, options_for_select(['Administrador', true], ['Doctor', false])) %>
+      <%= elemento.check_box :administador %>
+    </div>
+
+  </div>
+
+  <br>
+  <%= elemento.submit "Guardar", class: "btn btn-warning"  %>
+  <%= link_to "Cancelar", admin_users_path, class: "btn btn-danger" %>
+
+<% end %>
+
+
+

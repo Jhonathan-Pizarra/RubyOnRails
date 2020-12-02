@@ -1,0 +1,153 @@
+<h1>Detalle del paciente </h1>
+
+<div class="row">
+  <div class="col-3">
+    <%= form_for(@patient, html: {class:"col-s12" })  do |elemento| %>
+
+      <div class="row justify-content-start">
+        <div class="col-3">
+          <%= elemento.label :Doctor %>
+        </div>
+        <div class="col-3">
+          <%= elemento.label :user_id, value: current_user.id, :disabled => true   %>
+        </div>
+      </div>
+
+      <div class="row justify-content-start">
+        <div class="col-3">
+          <%= elemento.label :Cédula %>
+        </div>
+        <div class="col-3">
+          <%= elemento.text_field :ci, :disabled => true %>
+        </div>
+      </div>
+
+      <div class="row justify-content-start">
+        <div class="col-3">
+          <%= elemento.label :Nombre %>
+        </div>
+        <div class="col-3">
+          <%= elemento.text_field :name, :disabled => true %>
+        </div>
+      </div>
+
+      <div class="row justify-content-start">
+        <div class="col-3">
+          <%= elemento.label :Edad %>
+        </div>
+        <div class="col-3">
+          <%= elemento.text_field :age, :disabled => true %>
+        </div>
+      </div>
+
+      <div class="row justify-content-start">
+        <div class="col-3">
+          <%= elemento.label :Peso %>
+        </div>
+        <div class="col-3">
+          <%= elemento.text_field :height, :disabled => true %>
+        </div>
+      </div>
+
+      <div class="row justify-content-start">
+        <div class="col-3">
+          <%= elemento.label :TipoSangre %>
+        </div>
+        <div class="col-3">
+          <%= elemento.text_field :tblood, :disabled => true %>
+        </div>
+      </div>
+
+      <div class="row justify-content-start">
+        <div class="col-3">
+          <%= elemento.label :Alergia %>
+        </div>
+        <div class="col-3">
+          <%= elemento.text_field :allergy, :disabled => true %>
+        </div>
+      </div>
+
+      <br>
+      <%= link_to "Editar", edit_patient_path, class: "btn btn-primary"  %>
+      <%= link_to "Borrar", patient_path(elemento), method: :delete, data: { confirma: "Estas seguro?"} , class: "btn btn-danger"  %>
+      <%= link_to "Volver", room_path, class: "btn btn-warning" %>
+    <% end %>
+  </div>
+
+  <div class="col-9">
+    <h3>Nueva visita: </h3>
+    <div class="row">
+      <div class="col-12">
+        <%= form_for(@visit, html:{class: "col s12"}) do |elemento| %>
+
+          <div class="row justify-content-start">
+            <div class="col-1">
+              <%= elemento.label :Doctor%>
+            </div>
+            <div class="col-1">
+              <%= elemento.text_field :user_id, value: current_user.id %>
+            </div>
+          </div>
+
+          <div class="row justify-content-start">
+            <div class="col-1">
+              <%= elemento.label :Paciente %>
+            </div>
+            <div class="col-1">
+              <%= elemento.text_field :patient_id, value: @patient.id %>
+            </div>
+          </div>
+
+          <div class="row justify-content-start">
+            <div class="col-1">
+              <%= elemento.label :Motivo %>
+            </div>
+            <div class="col-1">
+              <%= elemento.text_field :motive %>
+            </div>
+          </div>
+
+          <div class="row justify-content-start">
+            <div class="col-1">
+              <%= elemento.label :Diagnostico %>
+            </div>
+            <div class="col-1">
+              <%= elemento.text_field :diagnostic %>
+            </div>
+          </div>
+
+          <br>
+          <%= elemento.submit "Guardar", class: "btn btn-primary"   %>
+          <%= link_to "volver", room_path, class: "btn btn-warning" %>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+
+<div class="row">
+  <% @visits.each do |visit| %>
+    <div class="col-3">
+      <div class="card border-success mb-3" style="max-width: 18rem;">
+        <div class="card-header bg-transparent border-success">Fecha: <%= visit.created_at %></div>
+        <div class="card-body text-secondary">
+          <h5 class="card-title"><%= visit.motive %></h5>
+          <p class="card-text"><%= visit.diagnostic %></p>
+
+          <%= link_to "editar", edit_visit_path, class: "btn btn-warning" %>
+          <%= link_to "borrar", visit_path(visit), class: "btn btn-danger" , method: :delete , data: { confirm: "Estas seguro?"}%>
+
+        </div>
+        <div class="card-footer bg-transparent border-success">Doctor: <%= visit.user.email %></div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+
+
+
+

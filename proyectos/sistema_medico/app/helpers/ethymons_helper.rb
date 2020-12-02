@@ -1,0 +1,2 @@
+module EthymonsHelper
+end

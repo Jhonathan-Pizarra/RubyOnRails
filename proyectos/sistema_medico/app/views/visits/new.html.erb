@@ -1,0 +1,56 @@
+<h2>Registro de nueva visita</h2>
+
+<% if @visit.errors.any? %>
+  <h4>Hubo errores con el registro, revisa que...</h4>
+  <ul>
+    <% @visit.errors.full_messages.each do |errores| %>
+      <li><%= errores %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for(@visit, html:{class: "col s12"}) do |elemento| %>
+
+  <div class="row justify-content-start">
+    <div class="col-1">
+      <%= elemento.label :Doctor%>
+    </div>
+    <div class="col-1">
+      <%= elemento.text_field :user_id, value: current_user.id, :disabled => true  %>
+    </div>
+  </div>
+
+  <div class="row justify-content-start">
+    <div class="col-1">
+      <%= elemento.label :Paciente %>
+    </div>
+    <div class="col-1">
+      <%= elemento.text_field :patient_id, value: @patient.id, :disabled => true   %>
+    </div>
+  </div>
+
+  <div class="row justify-content-start">
+    <div class="col-1">
+      <%= elemento.label :Motivo %>
+    </div>
+    <div class="col-1">
+      <%= elemento.text_field :motive %>
+    </div>
+  </div>
+
+  <div class="row justify-content-start">
+    <div class="col-1">
+      <%= elemento.label :Diagnostico %>
+    </div>
+    <div class="col-1">
+      <%= elemento.text_field :diagnostic %>
+    </div>
+  </div>
+
+  <br>
+  <%= elemento.submit "Guardar", class: "btn btn-primary"   %>
+  <%= link_to "volver", room_path, class: "btn btn-warning" %>
+<% end %>
+
+
+

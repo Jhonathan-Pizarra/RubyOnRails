@@ -1,0 +1,61 @@
+<div class="row justify-content-md-center">
+  <h1>Gestión de Cursos </h1>
+</div>
+<br>
+<br>
+<div class="row justify-content-md-center">
+  <%= link_to "Registrar un nuevo Curso", new_administrador_course_path, class: "btn btn-dark"  %>
+  <%= link_to "Estadísticas", administrador_stadistics_path, class: "btn btn-warning"  %>
+  <%# if(current_user.administrador) %>
+
+  <%# end %>
+</div>
+
+<br>
+<br>
+
+<div class="row justify-content-start">
+  <% if(current_user.administrador) %>
+    <% @courses_admins.each do |course| %>
+      <div class="col-3">
+        <div class="card border-success mb-3" style="max-width: 18rem;">
+          <div class="card-header bg-transparent border-success">Curso: <%= course.name %></div>
+          <div class="card-body text-secondary">
+            <h5 class="card-title"> Inicio: <%= course.finicio %></h5>
+            <p class="card-text"> Final: <%= course.ffinal %></p>
+
+            <%# link_to "Detalle", administrador_course_path(course.id), class: "btn btn-success" %>
+            <%= link_to "Detalle", administrador_course_path(course.id), class: "btn btn-success" %>
+            <%= link_to "Editar", edit_administrador_course_path(course), class: "btn btn-warning" %>
+            <%= link_to "Borrar", administrador_course_path(course), class: "btn btn-danger" , method: :delete , data: { confirm: "Estas seguro?"}%>
+
+          </div>
+          <div class="card-footer bg-transparent border-success">Tutor: <%= course.user.email  %></div>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+    <% @courses.each do |course| %>
+      <div class="col-3">
+        <div class="card border-success mb-3" style="max-width: 18rem;">
+          <div class="card-header bg-transparent border-success">Curso: <%= course.name %></div>
+          <div class="card-body text-secondary">
+            <h5 class="card-title"> Inicio: <%= course.finicio %></h5>
+            <p class="card-text"> Final: <%= course.ffinal %></p>
+
+            <%# link_to "Detalle", administrador_course_path(course.id), class: "btn btn-success" %>
+            <%= link_to "Detalle", administrador_course_path(course.id), class: "btn btn-success" %>
+            <%= link_to "Editar", edit_administrador_course_path(course), class: "btn btn-warning" %>
+            <%= link_to "Borrar", administrador_course_path(course), class: "btn btn-danger" , method: :delete , data: { confirm: "Estas seguro?"}%>
+
+          </div>
+          <div class="card-footer bg-transparent border-success">Tutor: <%= course.user.email  %></div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+<div class="row justify-content-md-center">
+  <h6><%= link_to "Volver", root_path, class: "btn btn-primary"  %></h6>
+</div>

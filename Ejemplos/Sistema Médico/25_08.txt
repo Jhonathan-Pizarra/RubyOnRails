@@ -1,0 +1,94 @@
+cuando manejo info privada, toca ver las leyes... 
+permisos, cifrados, firmas electrónicas
+
+Siempre se debe llevr transparencia y comunicacion con el cliente
+para que sepa cuales son sus derechos 
+qué informacion está no siendo privada
+de quién es la autoría
+
+--------------------
+
+index, uso cuando quiero mostrar todos los registros de una tabla
+no es correcto ponerle index...
+sino static_pages porque no tiene que ver con las rutas, ni los verbos
+en el controlador Ethymons, es un controlador sin verbos,
+sino crear acciones que no están relacionadas con los verbos show
+new, update...
+
+-----------
+Primero hay que crear el modelo, ese ya me hace la migravcion
+de ahí si necesito haer cambios en la bdd hay creo migraciones
+
+----------
+current_user.patient
+
+--------
+identificar qué usuario tiene la sesión activa
+
+1) ver en room que solo estoy llamando a mis pacientes...
+2) detalle del paciente en show... no el del detalle de su visita
+
+el paciente en el modelo debe tener muchas visitas
+patient.visits = visitas del paciente
+
+3) ruta de las estadisticas
+
+---------
+si desde el comienzo creo los resources se me crea automaticamente el modelo
+en el belogs to
+
+si no debo hacerlo manual, p sea en el modelo poner los has maney 
+y los belogs to
+
+----------
+dentro del show del paciente uiero poner el listado de visitas
+primero es la bdd y luego es como manejar las vistas
+
+El único controlador que va primero es el de la página inicial
+
+
+
+
+--------------
+Para agragar un campo en la base de datos, cualqueira, hay que hacer
+una migracion
+
+estos se pueden borrar mientras no le migre a mi bdd
+
+cuando hay migraciones compñlejas
+hay que hacer up y down para ver que está funcionando
+hacer up: migrat
+hacer down: rollback
+
+cada vez que creo una tabla hay que hacer su up 
+
+cuando una migracion rails sabe que es un up!
+sabe que el reverso es down
+y cuando quiero hacer un cambio
+hau un def change...
+
+cambiar una columna de un tipo de dato a otro
+
+hacer migracion, hacer rollback
+
+dar
+
+
+
+cuando una entidad es dependiente de otra, no necesita un controller
+solo sus vistas...
+
+las vistas serían dentro de la carpeta del cual es dependiente?
+
+
+
+y cómo es los modelos?
+no tendían modelos propios?
+
+
+
+
+
+
+
+

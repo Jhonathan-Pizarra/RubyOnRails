@@ -1,0 +1,8 @@
+<h1>Detalle: </h1>
+<h4><strong>Título: </strong><%= @notice.titulo %></h4>
+<h4><strong>Descripcion: </strong><%= @notice.descripcion_corta %></h4>
+
+<%= link_to "editar", edit_admin_notice_path(@notice) %> |
+<%= link_to "borrar", admin_notice_path(@notice), method: :delete , data: { confirma: "Estas seguro?"}%> |
+<%= link_to "volver", admin_notices_path %>
+

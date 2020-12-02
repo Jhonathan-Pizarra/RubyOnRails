@@ -1,0 +1,184 @@
+<div class="row justify-content-md-center">
+  <h1>Detalle del Curso </h1>
+</div>
+<br>
+<br>
+
+<div class="row justify-content-md-center">
+  <h2><%# @courses.name %> BGU</h2>
+</div>
+
+<br>
+<br>
+
+<div class="row justify-content-md-center" >
+  <h3>Registro de Cursos</h3><% if @courses.errors.any? %>
+    <h4>Hubo errores con el registro, revisa que...</h4>
+    <ul>
+      <% @courses.errors.full_messages.each do |errores| %>
+        <li><%= errores %></li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>
+
+<br>
+<br>
+
+<div class="row justify-content-md-center">
+  <div class="col-3">
+
+      <%= form_for(@alumn, html: {class: "col-s12"}) do |entity| %>
+
+      <div class="row justify-content-start">
+        <div class="col col-lg-6">
+          <%= entity.hidden_field :Curso %>
+        </div>
+        <div class="col col-lg-2">
+          <%= entity.hidden_field :course_id, value: @course.id, :disabled => true  %>
+        </div>
+      </div>
+
+        <div class="row justify-content-start">
+          <div class="col col-lg-6">
+            <%= entity.label :Nombre %>
+          </div>
+          <div class="col col-lg-2">
+            <%= entity.text_field :name %>
+          </div>
+        </div>
+
+        <div class="row justify-content-start">
+          <div class="col col-lg-6">
+            <%= entity.label :Edad %>
+          </div>
+          <div class="col col-lg-2">
+            <%= entity.text_field :age %>
+          </div>
+        </div>
+
+        <div class="row justify-content-start">
+          <div class="col col-lg-6">
+            <%= entity.label :Telefono %>
+          </div>
+          <div class="col col-lg-2">
+            <%= entity.text_field :phone %>
+          </div>
+        </div>
+
+        <div class="row justify-content-start">
+          <div class="col col-lg-6">
+            <%= entity.label :Mail %>
+          </div>
+          <div class="col col-lg-2">
+            <%= entity.text_field :email %>
+          </div>
+        </div>
+
+        <br>
+        <div class="row justify-content-end">
+          <div class="col col-lg-8">
+            <%= entity.submit "Guardar", class: "btn btn-success"  %>
+            <%= link_to "Cancelar", administrador_users_path, class: "btn btn-warning" %>
+          </div>
+        </div>
+
+      <% end %>
+
+  </div>
+
+  <div class="col-8">
+    <h5>Lista de Alumnos</h5>
+    <div class="row justify-content-md-start">
+      <div class="col-9">
+        <table class="table table-striped">
+          <thead class="thead-dark">
+          <tr>
+            <th>Nombre</th>
+            <th>Edad</th>
+            <th>Telefono</th>
+            <th>Email</th>
+            <th colspan="3">Accion</th>
+          </tr>
+          </thead>
+
+          <tbody>
+          <% @alumns.each do |entity| %>
+            <tr>
+              <td><%= entity.name %></td>
+              <td><%= entity.age %></td>
+              <td><%= entity.phone %></td>
+              <td><%= entity.email %></td>
+              <td>
+                <%= link_to "Detalle", alumn_path(entity.id) %>
+                <%= link_to "Editar", edit_alumn_path(entity) %>
+                <%= link_to "Borrar", alumn_path(entity), method: :delete, data: { confirm: "Estas seguro?"}  %>
+              </td>
+            </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<!--
+<div class="row justify-content-md-center" >
+    <%# form_for(@alumn, html: {class:"col-s12" })  do |entity| %>
+
+    <div class="row justify-content-start">
+      <div class="col col-lg-6">
+        <%# entity.label :Nombre %>
+      </div>
+      <div class="col col-lg-2">
+        <%# entity.text_field :name, :disabled => true  %>
+      </div>
+    </div>
+
+    <div class="row justify-content-start">
+      <div class="col col-lg-6">
+        <%# entity.label :Edad %>
+      </div>
+      <div class="col col-lg-2">
+        <%# entity.text_field :age, :disabled => true  %>
+      </div>
+    </div>
+
+    <div class="row justify-content-start">
+      <div class="col col-lg-6">
+        <%# entity.label :FechaFinal %>
+      </div>
+      <div class="col col-lg-2">
+        <%# entity.text_field :ffinal, :disabled => true  %>
+      </div>
+    </div>
+
+
+    <br>
+
+    <div class="row justify-content-end">
+      <div class="col col-lg-12">
+        <%# if(current_user.administrador) %>
+          <%# link_to "Editar", edit_administrador_course_path, class: "btn btn-primary"  %>
+          <%# link_to "Borrar", administrador_course_path, method: :delete, data: { confirm: "Estas seguro?"} , class: "btn btn-danger"  %>
+          <%# link_to "Cancelar", administrador_courses_path, class: "btn btn-warning" %>
+        <%# end %>
+      </div>
+    </div>
+
+  <%# end %>
+
+</div>
+-->
+
+
+<div class="row justify-content-md-center">
+  <h6><%= link_to "Volver", administrador_courses_path, class: "btn btn-primary"  %></h6>
+</div>
+
+
+
+

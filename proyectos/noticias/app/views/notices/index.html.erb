@@ -1,0 +1,34 @@
+<!--Listado de noticias-->
+<!--ver una noticia en particular-->
+<!--Paso 13-->
+
+<h1>TFC Smart</h1>
+<h5>ESFOT-EPN</h5>
+
+<table class="table table-striped">
+  <thead class="thead-dark">
+  <tr>
+    <th>Nombre</th>
+    <th>Cantidad</th>
+    <th colspan="3">Accion</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @notices.each do |noticia| %>
+    <tr>
+      <td><%= noticia.titulo %></td>
+      <td><%= noticia.descripcion_corta %></td>
+      <td><%= noticia.descripcion_larga %></td>
+      <td>
+        <%= link_to "detalle", notice_path(noticia.slug) %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<h4>Cantidad de noticias: <%= @notices.size %> </h4>
+<!--
+<h4>Agregar otra noticias: <%# link_to "nuevo", new_admin_notice_path %> </h4>
+-->

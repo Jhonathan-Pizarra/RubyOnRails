@@ -1,0 +1,39 @@
+<h1>Sala de Administración ;) </h1>
+<br>
+<br>
+
+<%= link_to "Registrar un nuevo Doctor", new_admin_user_path, class: "btn btn-dark"  %>
+<%= link_to "Estadísticas", admin_stadistic_path, class: "btn btn-warning"  %>
+
+<br>
+<br>
+
+<h5>Lista de Doctores</h5>
+
+<table class="table table-striped">
+  <thead class="thead-dark">
+  <tr>
+    <th>Email</th>
+    <th>Fecha Ingreso</th>
+    <th>Administrador</th>
+    <th colspan="3">Accion</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.email %></td>
+      <td><%= user.created_at %></td>
+      <td><%= user.administador %></td>
+      <td>
+        <%= link_to "Detalle", admin_user_path(user.id) %>
+        <%= link_to "Editar", edit_admin_user_path(user) %>
+        <%= link_to "Borrar", admin_user_path(user), method: :delete, data: { confirm: "Estas seguro?"}  %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<h6><%= link_to "volver", root_path, class: "btn btn-warning"  %></h6>

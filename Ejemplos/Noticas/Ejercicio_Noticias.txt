@@ -1,0 +1,45 @@
+admin/notices
+ es para la lógica de todo lo que hará el administrador
+un poco como que se divorcia del usuario normal
+
+
+#COMENTARIOS
+solo usuarios que hayuan iniciado sesión pueden escribibr 
+comentarios
+
+crear un modelo
+hacer relaciones
+
+1) Todos pueden ver noticias y detalle
+2) Usuario Admin: puede ver y eliminar y editar noticias
+3) Arreglar los cosos: RUTAS
+4) crear modelo Comment y controllador Commets
+	solo los usuarios logeados pueden crear comentarios
+si el usuario tiene sesion, aparece un form para comentar
+si no, aparece un mensaje de que tiene que iniciar sesión
+
+todos los que tienen el _id, tienen el belogns_to
+y los otros serían los has_many
+Toooodos los comentarios de la noticia deben estr listados
+haya o no haya sesión
+
+Usar HiddelField como si fuera el text_field
+del valor :user_id, valor(es current_user.id)
+
+Otro HiddenField para notice_id
+este me sirve para saber a qué noticia está el comentario
+hidden_field :user_id, current_user.id
+
+ya no le pongo el admin en el form
+
+<% Visit.all.each do |element| %>
+
+
+campo nomal, text_field
+comentarios
+
+change es automático
+es Up y Down automático
+
+estamos generando un modelo automaticament
+

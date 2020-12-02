@@ -1,0 +1,35 @@
+<!--Crear es muy similar a editar, me traigo lo mismo-->
+<h1>Edita un paciente</h1>
+
+<% if @visit.errors.any? %>
+  <h4>Hubo errores con la editación, revisa que...</h4>
+  <ul>
+    <% @visit.errors.full_messages.each do |errores| %>
+      <li><%= errores %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+
+<%= form_with model: @visit, local: true do |elemento| %>
+
+  <%= elemento.label :created_at %>
+
+  <p>
+    <%= elemento.label :Motivo %>
+    <%= elemento.text_field :motive %>
+  </p>
+
+  <p>
+    <%= elemento.label :Diagnostico %>
+    <%= elemento.text_field :diagnostic %>
+  </p>
+
+
+  <%= elemento.submit "Guardar"  %>
+
+<% end %>
+
+<br>
+<%= link_to "volver", patient_path(@visit.patient), class: "btn btn-warning" %>
+<%= link_to "cancelar y volver", room_path, class: "btn btn-danger" %>

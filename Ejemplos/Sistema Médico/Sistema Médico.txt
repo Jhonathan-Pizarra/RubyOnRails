@@ -1,0 +1,70 @@
+Nesecito tener un historial de mis pacientes
+
+-Hacer un login solo para doctores
+todo el mundo que entre a doctores.algo tendrá un Home
+y un botón para iniciar sesión
+
+-Una vez que inicia sesión el doctor irá a su dashboard
+el dashboard debe incluir:
+	-boton para registrar pacientes
+	- estadisticas:
+		-cantidad de pacientes que tiene
+		-
+
+el doctor es un usuario de tipo doctor
+admin es un usuario de tipo admin
+
+
+al momento de crear un paciente
+debo ir a un show y puedo administrarlo
+
+cuando entro al paciente
+puedo agregar visitas, y una opcion para crear nuevas visitas
+de ese paciente, como que un registro
+
+
+el doctor debe pode ir a un de pacientes...
+
+
+-Un modelo que se llame paciente que per
+un doctor puede crear todos los paicientes que quiere
+los datos del paciente: CI, nombres, edad, peso, sange, alergias
+
+-Una tabla para relacionar a los pacientes,
+registro de la visita (visit, este es el modelo de visita)
+campos: motivo, fecha, diagnostico, tratamiento, 
+(llea un paciente, yo lo creo, creo el registo de visita
+esto debe pertenecer al paciente, y al doctor
+
+
+Si varios doctores tiene el mismo paciente
+si esque ya existe un usuario registrado en la plataforma..(
+verificar el CI)
+el Dr no debería poder registrar el nuevo usuario
+pista: "validate uniqness"
+
+
+necesito un cotrolador admin
+para que si soy admin pueda hacer el crud de los usuarios
+(similar al crud de noticias)
+solo el administrador puede crear/elimiar doctores(usuarios)
+
+solo utilizar friendlu_id en el paciente, para que cuando haga 
+show de paciente, me muestre el nombre y no su id
+en el url
+
+Notice es igual a paciente
+Comentarios e sigual a visitas
+Usuarios son... usuarios tamb jaj
+
+Resumen:
+Modelos(User, Patient(belongs to user), Visit(belogs to user, belongs to patient)
+Cotrolladores (users_controller, etc..)
+Controlador_Admin (admin/users_controllr..)
+
+Sólo el admin puede entrar al controlador: acicones 
+(ver todoso los doctores
+show doctor
+crear doctores
+borrar doctores)
+

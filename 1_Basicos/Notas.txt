@@ -1,0 +1,67 @@
+App, contiene todos los modelos, vistas y controladores
+de nuestra aplicacion
+
+
+config, contiene nuestro "rutas.rb", este es el archivo
+con el que controlamos como nuestra aplicación fluye
+o se dirije entre una u otra, porque de alguna forma le 
+dice al controlador aprropiado que realice una accion.
+
+Mientras el servidor esté corriendo, este recibirá los
+request, y posteriormente nos direccionará
+
+db, es donde están nuestras bases de datos, contiene un 
+archivo "seeds.rb" , también tendrá "migraciones", etc
+
+---------
+por fuera de las carpetas tenemos el archivo Gemfile
+es en aqui donde se nos presentan todas la gemas que estamos
+usando en nuestra aplciación.
+Gemas son como paquetes que podemos usar para acceder a sus 
+funcionalidades, un "blundle install" en ruby es un 
+"gem install"
+
+---------Cósigos de Ruby
+<%= yield %>
+<% yield %>
+
+la diferencia es que si está con el igual se muestra en pantalla
+además que el hecho de estar entre <% %> significa que es código
+ruby y por tanto se evaluará como tal.
+
+-------------LINKS
+<%= link_to 'nombre de la pagina a ir', ruta %>
+ejemplo:
+<%= link_to 'home', root_path %>
+
+
+<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+Son los estilos vinculados a nuestro proyecto
+
+<%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+Son los JS especificados en la carptea JavaScript que están disponibles en nuestro
+proyecto, en cada vista de nuestro proyecto
+
+-----------
+CRUDS
+
+por lo general de un mismo controlador salen métodos crear
+editar, actualizar y eliminar.
+
+Ejemplo de crear
+En la ruta: get 'courses/new', to: 'courses#new'
+En el controlador:   
+  def new
+
+  end
+
+Em la visa:(dentro de la vista de a quién le quieras hacer el 
+crear, el nuevo)
+	new.html.erb
+
+
+	
+
+
+
+

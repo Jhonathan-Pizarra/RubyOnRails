@@ -1,0 +1,66 @@
+<div class="row justify-content-md-center">
+<h1>Detalle del Usuario </h1>
+</div>
+
+<br>
+<br>
+
+<div class="row justify-content-md-center" >
+<%= form_with model: [:administrador, @user], local: true do |entity| %>
+
+  <div class="row justify-content-start">
+    <div class="col col-lg-6">
+      <%= entity.label :Email %>
+    </div>
+    <div class="col col-lg-2">
+      <%= entity.text_field :email, :disabled => true  %>
+    </div>
+  </div>
+
+  <div class="row justify-content-start">
+    <div class="col col-lg-6">
+      <%= entity.label :FechaIngreso %>
+    </div>
+    <div class="col col-lg-2">
+      <%= entity.text_field :created_at, :disabled => true  %>
+    </div>
+  </div>
+
+  <div class="row justify-content-start">
+    <div class="col col-lg-6">
+      <%= entity.label :FechaRegistro %>
+    </div>
+    <div class="col col-lg-2">
+      <%= entity.text_field :updated_at, :disabled => true  %>
+    </div>
+  </div>
+
+  <div class="row justify-content-start">
+    <div class="col col-lg-6">
+      <%= entity.label :Administrador %>
+    </div>
+    <div class="col col-lg-2">
+      <%# elemento.select(:status_type, options_for_select(['Administrador', true], ['Doctor', false])) %>
+      <%= entity.check_box :administrador, :disabled => true %>
+    </div>
+
+  </div>
+
+  <br>
+
+  <div class="row justify-content-end">
+    <div class="col col-lg-12">
+      <%= link_to "Editar", edit_administrador_user_path, class: "btn btn-primary"  %>
+      <%= link_to "Borrar", administrador_user_path, method: :delete, data: { confirm: "Estas seguro?"} , class: "btn btn-danger"  %>
+      <%= link_to "Cancelar", administrador_users_path, class: "btn btn-warning" %>
+    </div>
+  </div>
+
+
+
+<% end %>
+
+</div>
+
+
+

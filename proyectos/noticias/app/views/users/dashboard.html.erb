@@ -1,0 +1,81 @@
+<h1>Sala de logeados :) </h1>
+
+<!--
+<%# link_to 'dashboard', dashboard_path %>
+
+Si eres admin, puedes poner y o crear noticas
+hacer un botón para que me direccione a un index de
+notica (ver noticis)
+admin: admin/noticias/index
+no admin: notices/index
+
+-------------
+Si es que soy admin:
+- ver cuántas noticias he creado cada admin #Problema: no tengo relación admin-noticias
+- cantidad total de noticias
+- cuantos comentarios totales
+- cuantos usuarios hay amin/no admin
+
+Si no soy admin:
+- En qué noticias has comentado #notices.commenta Comment.where(user_id: current_user.id) -> Comment.where(user_id: 1).map(&:notice_id)
+- Cuántos comentario shas hecho #current_user.comments.size
+- el último comentario que creé y la fecha del mi cometnrio finl y noticia pertence el comentario #current_user.comments.last
+- el último comentario de la platafor y  a qué usuario pertenece
+-->
+<% if current_user.admin %>
+  <%= link_to 'Noticias Admin', admin_notices_path %>
+
+  <h2>Noticias por cada admin:</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Nombre: </th>
+          <th>#Noticias:</th>
+        </tr>
+      </thead>
+
+      <tbody>
+      <% @users_admin.each do |admin|  %>
+        <tr>
+          <th>  <%= admin.email %> </th>
+          <th>  <%= admin.notices.size %> </th>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+
+
+  <br>
+  <h4>Noticias: <%= @notice.size %></h4>
+  <h4>Comentarios: <%= @coments.size %></h4>
+  <h4>Administradores: <%= @users_admin.size %> </h4>
+  <h4>Usuarios no Administradores: <%= @no_users_admin.size %></h4>
+<% end %>
+
+
+<%if !current_user.admin  %>
+  <%= link_to 'Noticias', notices_path %>
+
+  <h2>Noticias en las que has comentado: <%= @commets_x_notice.uniq %></h2>
+  <h2>Cuantos comentarios has hecho: <%= @commts_user.size %></h2>
+  <h2>Ultimo comentario:</h2>
+  <% if @ultimo_comentario.nil? %>
+    <p>No tienes comentrios...</p>
+
+  <% else %>
+    <ul>
+      <li>Comentario: <%= @ultimo_comentario.comentarios %></li>
+      <li>Fecha: <%= @ultimo_comentario.created_at %></li>
+      <li>Noticia: <%= @ultimo_comentario.notice.titulo %></li>
+    </ul>
+
+  <% end %>
+
+<% end %>
+
+<h4>Ultimo comentario de la plataforma: <%= @coments.last.comentarios %></h4>
+<h4>Hecho por el usuario: <%= @coments.last.user_id %></h4>
+
+
+
+

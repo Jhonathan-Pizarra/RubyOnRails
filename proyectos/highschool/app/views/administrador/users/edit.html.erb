@@ -1,0 +1,69 @@
+<div class="row justify-content-md-center" >
+  <h3>Editar un usuario</h3>
+
+  <% if @user.errors.any? %>
+    <h4>Hubo errores con el registro, revisa que...</h4>
+    <ul>
+      <% @user.errors.full_messages.each do |errores| %>
+        <li><%= errores %></li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>
+
+<br>
+<br>
+
+<div class="row justify-content-md-center" >
+  <%= form_with model: [:administrador, @user], local: true do |campo| %>
+
+    <div class="row justify-content-start">
+      <div class="col col-lg-6">
+        <%= campo.label :Email %>
+      </div>
+      <div class="col col-lg-2">
+        <%= campo.text_field :email %>
+      </div>
+    </div>
+
+    <div class="row justify-content-start">
+      <div class="col col-lg-6">
+        <%= campo.label :Contraseña %>
+      </div>
+      <div class="col col-lg-2">
+        <%= campo.password_field :password %>
+      </div>
+    </div>
+
+    <div class="row justify-content-start">
+      <div class="col col-lg-6">
+        <%= campo.label :Repetir_Contraseña %>
+      </div>
+      <div class="col col-lg-2">
+        <%= campo.password_field :password_confirmation %>
+      </div>
+    </div>
+
+    <div class="row justify-content-start">
+      <div class="col col-lg-6">
+        <%= campo.label :Administrador %>
+      </div>
+      <div class="col col-lg-2">
+        <%# elemento.select(:status_type, options_for_select(['Administrador', true], ['Doctor', false])) %>
+        <%= campo.check_box :administrador %>
+      </div>
+
+    </div>
+
+    <br>
+    <div class="row justify-content-end">
+      <div class="col col-lg-8">
+        <%= campo.submit "Guardar", class: "btn btn-success"  %>
+        <%= link_to "Cancelar", administrador_users_path, class: "btn btn-warning" %>
+      </div>
+    </div>
+
+  <% end %>
+
+</div>
+

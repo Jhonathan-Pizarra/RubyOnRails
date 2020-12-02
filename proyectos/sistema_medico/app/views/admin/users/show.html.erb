@@ -1,0 +1,61 @@
+<h1>Detalle del Doctor </h1>
+
+<%= form_with model: [:admin, @user], local: true do |elemento| %>
+
+  <div class="row justify-content-start">
+    <div class="col-1">
+      <%= elemento.label :Email %>
+    </div>
+    <div class="col-1">
+      <%= elemento.text_field :email, :disabled => true  %>
+    </div>
+  </div>
+
+  <div class="row justify-content-start">
+    <div class="col-1">
+      <%= elemento.label :Contraseña %>
+    </div>
+    <div class="col-1">
+      <%= elemento.password_field :password, :disabled => true  %>
+    </div>
+  </div>
+
+  <div class="row justify-content-start">
+    <div class="col-1">
+      <%= elemento.label :Repetir_Contraseña %>
+    </div>
+    <div class="col-1">
+      <%= elemento.password_field :password_confirmation, :disabled => true  %>
+    </div>
+  </div>
+
+  <div class="row justify-content-start">
+    <div class="col-1">
+      <%= elemento.label :Rol %>
+    </div>
+    <div class="col-1">
+      <%# elemento.select(:status_type, options_for_select(['Administrador', true], ['Doctor', false])) %>
+      <div class="from-group">
+        <div class="form-check pl-0">
+          <%# f.check_box :administador, class: 'form-check-input', required: true %>
+          <%# f.label :administador, id: 'accept_terms_and_policy_label', class: '' do %>
+          <%# @acuerdo = Medium.find_by(name: 'Condiciones de servicio') %>
+          <%# @privacidad = Medium.find_by(name: 'Politica de privacidad') %>
+          <!--He leído y acepto los <%# link_to 'Términos y condiciones de servicio', !@acuerdo.nil? ? asset_path(@acuerdo.media) : '#', target: '_blank' %> y la <%# link_to 'Política de privavidad', !@privacidad.nil? ? asset_path(@privacidad.media) : '#', target: '_blank' %>.-->
+          <%# end %>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <br>
+  <%= link_to "Editar", edit_admin_user_path, class: "btn btn-primary"  %>
+  <%= link_to "Borrar", patient_path(elemento), method: :delete, data: { confirm: "Estas seguro?"} , class: "btn btn-danger"  %>
+  <%= link_to "Volver", admin_users_path, class: "btn btn-warning" %>
+
+<% end %>
+
+
+
+
